@@ -1,0 +1,18 @@
+build/
+build_*/
+out/
+*.o
+*.obj
+*.exe
+*.so
+__pycache__/
+venv/
+.pytest_cache/
+*.log
+compile_commands.json
+CMakeCache.txt
+CMakeFiles/
+
+# Seed manifests are regenerated, not hand-edited:
+#   python tools/make_manifest.py <master_seed> <n> <out_path>
+*.manifest

@@ -1,0 +1,17 @@
+$ compute-sanitizer --tool memcheck ./build/run_session /tmp/small.manifest 50
+========= COMPUTE-SANITIZER
+========= Error: Failed to initialize WDDM debugger interface. Please run EnableDebuggerInterface.bat as an administrator
+=========
+========= Error: Device not supported. Please refer to the "Supported Devices" section of the sanitizer documentation
+=========
+a740f07554c2f5303e065d2687bbb30bc8e5bf3037945957fb1765cf229277aa
+========= ERROR SUMMARY: 2 errors
+
+compute-sanitizer could not attach under WSL2: it needs the WDDM debugger
+interface, which a virtualized GPU driver stack does not expose. This is a
+documented WSL2 limitation (NVIDIA Nsight Compute/compute-sanitizer
+"Supported Devices"), not something worked around here; the kernel's host
+memory management is covered instead by ASan/UBSan on run_session,
+bench_throughput and compare_gpu_cpu's host-side code, and the GPU/CPU
+agreement check (above) and the 100/100 replay digest are the correctness
+evidence for the kernel itself.

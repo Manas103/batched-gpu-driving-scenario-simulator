@@ -1,0 +1,14 @@
+$ cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_ASAN=ON && make -j6 && ctest --output-on-failure
+Test project build_asan
+    Start 1: check_idm
+1/5 Test #1: check_idm ........................   Passed    0.01 sec
+    Start 2: check_mobil
+2/5 Test #2: check_mobil ......................   Passed    0.01 sec
+    Start 3: check_bicycle
+3/5 Test #3: check_bicycle ....................   Passed    0.01 sec
+    Start 4: check_sha256
+4/5 Test #4: check_sha256 .....................   Passed    0.01 sec
+    Start 5: check_scenario
+5/5 Test #5: check_scenario ...................   Passed    0.14 sec
+
+100% tests passed, 0 tests failed out of 5

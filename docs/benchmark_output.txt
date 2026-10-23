@@ -1,0 +1,13 @@
+$ ./bench_throughput
+device: NVIDIA GeForce RTX 4070 SUPER (sm_89), 56 SMs
+gpu: n=4096 ticks=2000 secs=0.918865 env_steps_per_sec=8915341.8
+cpu: n=4096 ticks=20 secs=0.249373 env_steps_per_sec=328503.6
+
+$ ./compare_gpu_cpu
+n=4096 ticks=600 max_relative_diff=2.176e-13 (scenario=228 vehicle=2 field=x)
+
+$ python3 tools/run_replay_digests.py build --n 4096 --ticks 300 --sessions 100
+sessions=100 n_scenarios=4096 ticks=300
+unique digests: 1
+digest: 25e9b8b347d9f3dd2ea54b1b392633007badbf6b68d3f41d7eb133da5bde4c34
+100 of 100 sessions matched the first session's digest
